@@ -14,7 +14,7 @@ headers = {
     'Content-Type': 'application/json',
 }
 
-response = requests.get(api_url, headers=headers, params=params)
+response = requests.get(url, headers=headers, params=params)
 
 if response.status_code == 200:
     film_info = response.json()
