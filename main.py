@@ -1,6 +1,6 @@
 import requests
 
-api_url = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword'
+url = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword'
 api_key = '83ab7be7-a127-42b1-b2c2-09da98f0da7b'
 
 film_name = input('Введите название фильма: ')
