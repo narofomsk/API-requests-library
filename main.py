@@ -1,23 +1,22 @@
 import requests
 
-url = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword'
-api_key = '83ab7be7-a127-42b1-b2c2-09da98f0da7b'
+api_url = 'https://65f1bef1034bdbecc7639165.mockapi.io/items'
 
-film_name = input('Введите название фильма: ')
-
-params = {
-    'keyword': film_name,
+header = {
+    'Content-Type': 'application/json'
 }
 
-headers = {
-    'X-API-KEY': api_key,
-    'Content-Type': 'application/json',
+cost = float(input('Введите примерную стоимость кроссовок от 8000 до 15000: '))
+
+
+data = {
+    'price': cost
 }
 
-response = requests.get(url, headers=headers, params=params)
+response = requests.post(api_url, headers=header, json=data)
 
-if response.status_code == 200:
-    film_info = response.json()
-    print(film_info)
+if response.status_code == 201:
+    shoe = response.json()
+    print('Название кроссовок:', shoe['name'])
 else:
-    print('Ошибка при обращении к API:', response.status_code)
+    print('Ошибка при отправке запроса:', response.status_code)
